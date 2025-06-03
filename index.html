@@ -499,7 +499,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-800 mb-1">Atendemos</h4>
-                                <p class="text-gray-700">Campinas e Paulínia</p>
+                                <p class="text-gray-700">Paulínia - SP</p>
                             </div>
                         </div>
                         
@@ -573,7 +573,6 @@
             mobileMenu.classList.toggle('hidden');
         });
         
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -606,7 +605,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (totalQuantity > MAX_CUPCAKES) {
-            // Revert to previous valid value
             currentInput.value = parseInt(currentInput.value) - (totalQuantity - MAX_CUPCAKES);
             errorEl.classList.remove('hidden');
             setTimeout(() => errorEl.classList.add('hidden'), 2000);
@@ -626,7 +624,6 @@ document.addEventListener('DOMContentLoaded', function() {
             subtotal += quantity * parseFloat(input.dataset.price);
         });
 
-        // Enforce hard limit first
         totalQuantity = enforceMaxLimit(this);
 
         const discount = subtotal * 0.1;
