@@ -1,9 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nina Caseira - Paulínia</title>
+    <title>Nina Caseira - Bolinhos Artesanais | Paulínia</title>
+    <meta name="description" content="Bolinhos caseiros sem glúten e lactose em Paulínia. Feitos com ingredientes naturais.">
+    <meta name="keywords" content="bolinhos, Paulínia, sem glúten, sem lactose, doces saudáveis">
+    <!-- Favicon -->
+    
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<meta name="apple-mobile-web-app-title" content="Nina Caseira" />
+	<link rel="manifest" href="/site.webmanifest" />
+    
+    <meta property="og:title" content="Nina Caseira - Bolinhos Artesanais em Paulínia">
+    <meta property="og:description" content="Bolinhos caseiros sem glúten e lactose. Entregamos em Paulínia..">
+    <meta property="og:image" content="https://www.ninacaseira.com/logo.png">
+    <meta property="og:url" content="https://www.ninacaseira.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://www.ninacaseira.com/">
+	<meta property="twitter:title" content="Nina Caseira - Bolinhos Artesanais em Paulínia">
+	<meta property="twitter:description" content="Bolinhos caseiros sem glúten e sem lactose em Paulínia. Feitos com ingredientes naturais, entregamos em Paulínia.">
+	<meta property="twitter:image" content="https://www.ninacaseira.com/logo.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "Bakery",
+	  "name": "Nina Caseira",
+	  "image": "https://www.ninacaseira.com/logo.png",
+	  "@id": "https://www.ninacaseira.com",
+	  "url": "https://www.ninacaseira.com",
+	  "telephone": "+5519988110380",
+	  "priceRange": "$$",
+	  "address": {
+		"@type": "PostalAddress",
+		"addressLocality": "Paulínia",
+		"addressRegion": "SP",
+		"postalCode": "13140-000",
+		"addressCountry": "BR"
+	  },
+	  "geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "-22.7611",
+		"longitude": "-47.1542"
+	  },
+	  "openingHoursSpecification": {
+		"@type": "OpeningHoursSpecification",
+		"dayOfWeek": [
+		  "Monday",
+		  "Tuesday",
+		  "Wednesday",
+		  "Thursday",
+		  "Friday"
+		],
+		"opens": "08:30",
+		"closes": "16:30"
+	  },
+	  "sameAs": [
+		"https://www.instagram.com/ninacaseira/"
+	  ]
+	}
+	</script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -573,6 +638,7 @@
             mobileMenu.classList.toggle('hidden');
         });
         
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -605,6 +671,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (totalQuantity > MAX_CUPCAKES) {
+            // Revert to previous valid value
             currentInput.value = parseInt(currentInput.value) - (totalQuantity - MAX_CUPCAKES);
             errorEl.classList.remove('hidden');
             setTimeout(() => errorEl.classList.add('hidden'), 2000);
@@ -624,6 +691,7 @@ document.addEventListener('DOMContentLoaded', function() {
             subtotal += quantity * parseFloat(input.dataset.price);
         });
 
+        // Enforce hard limit first
         totalQuantity = enforceMaxLimit(this);
 
         const discount = subtotal * 0.1;
