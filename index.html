@@ -276,8 +276,7 @@
     <!-- Menu Section -->
     <section id="menu" class="section bg-primary">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Nossas Delícias</h2>
-            
+            <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Nossas Delícias</h2> 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Item 1 -->
                 <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
@@ -374,85 +373,86 @@
                 </div>
          
                 <!-- Item 6 -->
-	<div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
-	    <div class="p-6">
-			<h3 class="text-xl font-bold text-primary mb-2">Kit com 6 bolinhos</h3>
-			<p class="text-gray-600 mb-4">Simule o valor!</p>
-		
-			<!-- Cupcake Selection -->
-			<div class="space-y-4 mb-6">
-				<!-- Coconut -->
-				<div class="flex items-center justify-between">
-					<div class="flex items-center">
-						<input type="number" min="0" max="6" data-price="4.50" 
-						   class="cupcake-qty w-16 px-2 py-1 border rounded" 
-						   placeholder="0" data-name="Bolo de Coco">
-						<span class="ml-2">Bolo de Coco</span>
+		<div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+		    <div class="p-6">
+				<h3 class="text-xl font-bold text-primary mb-2">Kit com 6 bolinhos</h3>
+				<p class="text-gray-600 mb-4">Simule o valor!</p>
+			
+				<!-- Cupcake Selection -->
+				<div class="space-y-4 mb-6">
+					<!-- Coconut -->
+					<div class="flex items-center justify-between">
+						<div class="flex items-center">
+							<input type="number" min="0" max="6" data-price="4.50" 
+							   class="cupcake-qty w-16 px-2 py-1 border rounded" 
+							   placeholder="0" data-name="Bolo de Coco">
+							<span class="ml-2">Bolo de Coco</span>
+						</div>
+					</div>
+					
+					<!-- Banana -->
+					<div class="flex items-center justify-between">
+						<div class="flex items-center">
+							<input type="number" min="0" max="6" data-price="3.50" 
+							   class="cupcake-qty w-16 px-2 py-1 border rounded" 
+							   placeholder="0" data-name="Bolo de Banana">
+							<span class="ml-2">Bolo de Banana</span>
+						</div>
+					</div>
+					
+					<!-- Chocolate -->
+					<div class="flex items-center justify-between">
+						<div class="flex items-center">
+							<input type="number" min="0" max="6" data-price="6.50" 
+							   class="cupcake-qty w-16 px-2 py-1 border rounded" 
+							   placeholder="0" data-name="Bolo de Chocolate">
+							<span class="ml-2">Bolo de Chocolate</span>
+						</div>
+					</div>
+					
+					<!-- Banana with Chocolate Chips -->
+					<div class="flex items-center justify-between">
+						<div class="flex items-center">
+							<input type="number" min="0" max="6" data-price="4.90" 
+							   class="cupcake-qty w-16 px-2 py-1 border rounded" 
+							   placeholder="0" data-name="Bolo de Banana com Gotas de Chocolate">
+							<span class="ml-2">Bolo de Banana com Gotas de Chocolate</span>
+						</div>
+					</div>
+					
+					<!-- Banana with Blueberry -->
+					<div class="flex items-center justify-between">
+						<div class="flex items-center">
+							<input type="number" min="0" max="6" data-price="4.50" 
+							   class="cupcake-qty w-16 px-2 py-1 border rounded" 
+							   placeholder="0" data-name="Bolo de Banana com Mirtilo">
+							<span class="ml-2">Bolo de Banana com Mirtilo</span>
+						</div>
 					</div>
 				</div>
-				
-				<!-- Banana -->
-				<div class="flex items-center justify-between">
-					<div class="flex items-center">
-						<input type="number" min="0" max="6" data-price="3.50" 
-						   class="cupcake-qty w-16 px-2 py-1 border rounded" 
-						   placeholder="0" data-name="Bolo de Banana">
-						<span class="ml-2">Bolo de Banana</span>
-					</div>
-				</div>
-				
-				<!-- Chocolate -->
-				<div class="flex items-center justify-between">
-					<div class="flex items-center">
-						<input type="number" min="0" max="6" data-price="6.50" 
-						   class="cupcake-qty w-16 px-2 py-1 border rounded" 
-						   placeholder="0" data-name="Bolo de Chocolate">
-						<span class="ml-2">Bolo de Chocolate</span>
-					</div>
-				</div>
-				
-				<!-- Banana with Chocolate Chips -->
-				<div class="flex items-center justify-between">
-					<div class="flex items-center">
-						<input type="number" min="0" max="6" data-price="4.90" 
-						   class="cupcake-qty w-16 px-2 py-1 border rounded" 
-						   placeholder="0" data-name="Bolo de Banana com Gotas de Chocolate">
-						<span class="ml-2">Bolo de Banana com Gotas de Chocolate</span>
-					</div>
-				</div>
-				
-				<!-- Banana with Blueberry -->
-				<div class="flex items-center justify-between">
-					<div class="flex items-center">
-						<input type="number" min="0" max="6" data-price="4.50" 
-						   class="cupcake-qty w-16 px-2 py-1 border rounded" 
-						   placeholder="0" data-name="Bolo de Banana com Mirtilo">
-						<span class="ml-2">Bolo de Banana com Mirtilo</span>
-					</div>
+			
+			<!-- Total Display -->
+				<div class="border-t pt-4">
+				    <div class="flex justify-between mb-2">
+						<span class="font-medium">Valor:</span>
+						<span id="subtotal">R$ 0,00</span>
+				    </div>
+				    <div class="flex justify-between mb-2 text-green-600">
+						<span class="font-medium">Desconto (10%):</span>
+						<span id="discount">-R$ 0,00</span>
+				    </div>
+				    <div class="flex justify-between font-bold text-lg">
+						<span>Total:</span>
+						<span id="total">R$ 0,00</span>
+				    </div>
+				    <div id="quantity-error" class="text-red-500 text-sm mt-2 hidden">
+						Máximo de 6 itens por kit!
+				    </div>
 				</div>
 			</div>
-		
-		<!-- Total Display -->
-		<div class="border-t pt-4">
-		    <div class="flex justify-between mb-2">
-				<span class="font-medium">Valor:</span>
-				<span id="subtotal">R$ 0,00</span>
-		    </div>
-		    <div class="flex justify-between mb-2 text-green-600">
-				<span class="font-medium">Desconto (10%):</span>
-				<span id="discount">-R$ 0,00</span>
-		    </div>
-		    <div class="flex justify-between font-bold text-lg">
-				<span>Total:</span>
-				<span id="total">R$ 0,00</span>
-		    </div>
-		    <div id="quantity-error" class="text-red-500 text-sm mt-2 hidden">
-				Máximo de 6 itens por kit!
-		    </div>
 		</div>
-	</div>
-	</div>
-	</section>
+	    </div>
+    </section>
 
 <!-- New Dicas Section -->
     <section id="dicas" class="section bg-primary">
@@ -602,7 +602,6 @@
                         <h3 class="text-2xl font-bold">
                             <span class="text-white handwriting">Nina</span>
                             <span class="text-gray-200 handwriting2"> Caseira</span>
-                        </h3>
                         </h3>
                     </div>
                     <p class="mt-2">Feito à mão, pensando com o coração</p>
