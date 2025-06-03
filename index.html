@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nina Caseira - Feito à mão, pensado com o coração</title>
+    <title>Nina Caseira - Paulínia</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -54,9 +54,14 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
         .section {
-            min-height: 100vh;
-            padding: 80px 20px;
-        }
+			padding: 4rem 1.25rem; /* 64px 20px on mobile */
+		}
+
+		@media (min-width: 768px) {
+			.section {
+				padding: 5rem 1.5rem; /* 80px 24px on desktop */
+			}
+		}
         .menu-item {
             transition: transform 0.3s ease;
         }
@@ -80,6 +85,50 @@
             height: 120px;
             margin-bottom: 20px;
         }
+        .cupcake-qty:disabled {
+        background-color: #f3f4f6;
+        cursor: not-allowed;
+        opacity: 0.7;
+		}
+		#quantity-error {
+			transition: opacity 0.3s ease;
+		}
+        .dica-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .dica-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #787c48;
+        }
+        .dica-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #555;
+        }
+        .dica-answer.open {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+        .dica-icon {
+            transition: transform 0.3s ease;
+        }
+        .dica-icon.open {
+            transform: rotate(180deg);
+        }
+        #contact {
+			padding-bottom: 120px; /* Extra space before footer */
+		}
     </style>
 </head>
 <body class="font-sans bg-primary">
@@ -99,6 +148,7 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="#about" class="text-primary hover:text-secondary font-medium">Sobre</a>
                     <a href="#menu" class="text-primary hover:text-secondary font-medium">Cardápio</a>
+                    <a href="#dicas" class="text-primary hover:text-secondary font-medium">Dicas</a>
                     <a href="#contact" class="text-primary hover:text-secondary font-medium">Contato</a>
                 </div>
                 <div class="md:hidden">
@@ -114,6 +164,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
             <a href="#about" class="block px-4 py-2 text-primary hover:bg-gray-100">Sobre</a>
             <a href="#menu" class="block px-4 py-2 text-primary hover:bg-gray-100">Cardápio</a>
+            <a href="#dicas" class="block px-4 py-2 text-primary hover:bg-gray-100">Dicas</a>
             <a href="#contact" class="block px-4 py-2 text-primary hover:bg-gray-100">Contato</a>
         </div>
     </nav>
@@ -134,7 +185,7 @@
     <!-- About Section -->
     <section id="about" class="section bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Sobre nossas delícias</h2>
+            <!-- <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Sobre nossas delícias</h2> -->
             <div class="flex flex-col md:flex-row items-center gap-8">
                 <div class="md:w-1/2">
                     <img src="logo.png" alt="Homemade cookies"  class="rounded-lg shadow-xl w-full h-auto object-cover" style="max-height: 550px;">
@@ -175,7 +226,7 @@
                             <li>• Iogurte Natural</li>
                             <li>• Mel</li>
                             <li>• Farinha sem Glúten</li>
-		            <li>• Gotas de Chocolate</li>
+							<li>• Gotas de Chocolate</li>
                         </ul>
                         <p class="text-secondary font-bold text-xl">R$ 6,50/unidade</p>
                     </div>
@@ -193,8 +244,8 @@
                             <li>• Iogurte Natural</li>
                             <li>• Banana</li>
                             <li>• Aveia em Flocos</li>
-			    <li>• Mel</li>
-		            <li>• Gotas de Chocolate</li>
+							<li>• Mel</li>
+							<li>• Gotas de Chocolate</li>
                         </ul>
                         <p class="text-secondary font-bold text-xl">R$ 4,90/unidade</p>
                     </div>
@@ -215,7 +266,7 @@
 			    <li>• Leite de Coco</li>
 		            <li>• Coco Chips</li>
                         </ul>
-                        <p class="text-secondary font-bold text-xl">R$ 4,00/unidade</p>
+                        <p class="text-secondary font-bold text-xl">R$ 4,50/unidade</p>
                     </div>
                 </div>
                 
@@ -238,42 +289,177 @@
                 </div>
                
                 <!-- Item 5 -->
-	<!-- 
+	
                 <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
                     <img src="logo.png" alt="Bolinho de Chocolate" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Amêndoas</h3>
+                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Banana com Mirtilo</h3>
                         <p class="text-gray-600 mb-4">Companhia perfeita para o lanchinho da tarde</p>
                         <ul class="text-gray-700 mb-4">
-                            <li>• Farinha</li>
-                            <li>• Cacau em pó</li>
                             <li>• Ovos</li>
                             <li>• Óleo de Coco</li>
                             <li>• Iogurte Natural</li>
+                            <li>• Banana</li>
+                            <li>• Aveia em Flocos</li>
+							<li>• Mel</li>
+							<li>• Mirtilo</li>
                         </ul>
-                        <p class="text-secondary font-bold text-xl">R$ 5,90/unidade</p>
+                        <p class="text-secondary font-bold text-xl">R$ 4,50/unidade</p>
                     </div>
                 </div>
-        -->  
+         
                 <!-- Item 6 -->
-	<!-- 
-                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Lemon Pound Cake" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho Red Velvet</h3>
-                        <p class="text-gray-600 mb-4">As crianças adoram!</p>
-                        <ul class="text-gray-700 mb-4">
-                            <li>• Farinha</li>
-                            <li>• Cacau em pó</li>
-                            <li>• Ovos</li>
-                            <li>• Óleo de Coco</li>
-                            <li>• Iogurte Natural</li>
-                        </ul>
-                        <p class="text-secondary font-bold text-xl">R$ 5,90/unidade</p>
+	<div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+	    <div class="p-6">
+			<h3 class="text-xl font-bold text-primary mb-2">Kit com 6 bolinhos</h3>
+			<p class="text-gray-600 mb-4">Simule o valor!</p>
+		
+			<!-- Cupcake Selection -->
+			<div class="space-y-4 mb-6">
+				<!-- Coconut -->
+				<div class="flex items-center justify-between">
+					<div class="flex items-center">
+						<input type="number" min="0" max="6" data-price="4.50" 
+						   class="cupcake-qty w-16 px-2 py-1 border rounded" 
+						   placeholder="0" data-name="Bolo de Coco">
+						<span class="ml-2">Bolo de Coco</span>
+					</div>
+				</div>
+				
+				<!-- Banana -->
+				<div class="flex items-center justify-between">
+					<div class="flex items-center">
+						<input type="number" min="0" max="6" data-price="3.50" 
+						   class="cupcake-qty w-16 px-2 py-1 border rounded" 
+						   placeholder="0" data-name="Bolo de Banana">
+						<span class="ml-2">Bolo de Banana</span>
+					</div>
+				</div>
+				
+				<!-- Chocolate -->
+				<div class="flex items-center justify-between">
+					<div class="flex items-center">
+						<input type="number" min="0" max="6" data-price="6.50" 
+						   class="cupcake-qty w-16 px-2 py-1 border rounded" 
+						   placeholder="0" data-name="Bolo de Chocolate">
+						<span class="ml-2">Bolo de Chocolate</span>
+					</div>
+				</div>
+				
+				<!-- Banana with Chocolate Chips -->
+				<div class="flex items-center justify-between">
+					<div class="flex items-center">
+						<input type="number" min="0" max="6" data-price="4.90" 
+						   class="cupcake-qty w-16 px-2 py-1 border rounded" 
+						   placeholder="0" data-name="Bolo de Banana com Gotas de Chocolate">
+						<span class="ml-2">Bolo de Banana com Gotas de Chocolate</span>
+					</div>
+				</div>
+				
+				<!-- Banana with Blueberry -->
+				<div class="flex items-center justify-between">
+					<div class="flex items-center">
+						<input type="number" min="0" max="6" data-price="4.50" 
+						   class="cupcake-qty w-16 px-2 py-1 border rounded" 
+						   placeholder="0" data-name="Bolo de Banana com Mirtilo">
+						<span class="ml-2">Bolo de Banana com Mirtilo</span>
+					</div>
+				</div>
+			</div>
+		
+		<!-- Total Display -->
+		<div class="border-t pt-4">
+		    <div class="flex justify-between mb-2">
+				<span class="font-medium">Valor:</span>
+				<span id="subtotal">R$ 0,00</span>
+		    </div>
+		    <div class="flex justify-between mb-2 text-green-600">
+				<span class="font-medium">Desconto (10%):</span>
+				<span id="discount">-R$ 0,00</span>
+		    </div>
+		    <div class="flex justify-between font-bold text-lg">
+				<span>Total:</span>
+				<span id="total">R$ 0,00</span>
+		    </div>
+		    <div id="quantity-error" class="text-red-500 text-sm mt-2 hidden">
+				Máximo de 6 itens por kit!
+		    </div>
+		</div>
+	</div>
+	</div>
+	</section>
+
+<!-- New Dicas Section -->
+    <section id="dicas" class="section bg-primary">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Dicas da Nina</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- Dica 1 -->
+                <div class="dica-item">
+                    <div class="dica-question" onclick="toggleDica(this)">
+                        <span>Como conservar meus bolinhos por mais tempo?</span>
+                        <svg class="dica-icon w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dica-answer">
+                        <p>Nossos bolinhos duram até 5 dias quando conservados em temperatura ambiente em um pote fechado. Para maior duração (até 10 dias), recomendo guardar na geladeira em um recipiente hermético. Você também pode congelar por até 2 meses!</p>
+                    </div>
+                </div>
+                
+                <!-- Dica 2 -->
+                <div class="dica-item">
+                    <div class="dica-question" onclick="toggleDica(this)">
+                        <span>Posso encomendar bolinhos para eventos especiais?</span>
+                        <svg class="dica-icon w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dica-answer">
+                        <p>Com certeza! Aceitamos encomendas para festas, eventos corporativos e presentes especiais. Recomendamos fazer o pedido com pelo menos 3 dias de antecedência para garantir a disponibilidade. Para grandes quantidades (acima de 50 unidades), entre em contato com pelo menos 1 semana de antecedência.</p>
+                    </div>
+                </div>
+                
+                <!-- Dica 3 -->
+                <div class="dica-item">
+                    <div class="dica-question" onclick="toggleDica(this)">
+                        <span>Quais são as opções para intolerâncias alimentares?</span>
+                        <svg class="dica-icon w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dica-answer">
+                        <p>Todos nossos bolinhos são naturalmente sem glúten e sem lactose. Temos opções com e sem açúcar (adoçados com mel ou açúcar de coco). Para alergias específicas (como nozes ou ovos), por favor nos avise no pedido para podermos orientar melhor sobre as opções disponíveis.</p>
+                    </div>
+                </div>
+                
+                <!-- Dica 4 -->
+                <div class="dica-item">
+                    <div class="dica-question" onclick="toggleDica(this)">
+                        <span>Como faço para presentear alguém com seus bolinhos?</span>
+                        <svg class="dica-icon w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dica-answer">
+                        <p>Temos kits presente especiais com embalagem decorada e mensagem personalizada. Você pode encomendar pelo WhatsApp informando o endereço de entrega e a mensagem que deseja incluir. Fazemos entregas em Paulínia com embalagem especial para presentes. Consulte valores e disponibilidade pelo nosso WhatsApp</p>
+                    </div>
+                </div>
+                
+                <!-- Dica 5 -->
+                <div class="dica-item">
+                    <div class="dica-question" onclick="toggleDica(this)">
+                        <span>Qual a diferença entre seus bolinhos e os tradicionais?</span>
+                        <svg class="dica-icon w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dica-answer">
+                        <p>Nossos bolinhos são feitos com ingredientes naturais e nutritivos - usamos óleo de coco no lugar de manteiga, iogurte natural para maciez, e mel ou açúcar de coco como adoçantes. São mais nutritivos, menos calóricos e com índice glicêmico mais baixo que bolinhos convencionais, sem abrir mão do sabor!</p>
                     </div>
                 </div>
             </div>
-	 -->
         </div>
     </section>
 
@@ -399,6 +585,73 @@
                 });
             });
         });
-    </script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const quantityInputs = document.querySelectorAll('.cupcake-qty');
+    const subtotalEl = document.getElementById('subtotal');
+    const discountEl = document.getElementById('discount');
+    const totalEl = document.getElementById('total');
+    const errorEl = document.getElementById('quantity-error');
+    const MAX_CUPCAKES = 6;
+    let previousTotal = 0;
+
+    function formatCurrency(value) {
+        return 'R$ ' + value.toFixed(2).replace('.', ',');
+    }
+
+    function enforceMaxLimit(currentInput) {
+        let totalQuantity = 0;
+        quantityInputs.forEach(input => {
+            totalQuantity += parseInt(input.value) || 0;
+        });
+
+        if (totalQuantity > MAX_CUPCAKES) {
+            // Revert to previous valid value
+            currentInput.value = parseInt(currentInput.value) - (totalQuantity - MAX_CUPCAKES);
+            errorEl.classList.remove('hidden');
+            setTimeout(() => errorEl.classList.add('hidden'), 2000);
+        } else {
+            errorEl.classList.add('hidden');
+        }
+        return Math.min(totalQuantity, MAX_CUPCAKES);
+    }
+
+    function updateTotals() {
+        let totalQuantity = 0;
+        let subtotal = 0;
+        
+        quantityInputs.forEach(input => {
+            const quantity = parseInt(input.value) || 0;
+            totalQuantity += quantity;
+            subtotal += quantity * parseFloat(input.dataset.price);
+        });
+
+        // Enforce hard limit first
+        totalQuantity = enforceMaxLimit(this);
+
+        const discount = subtotal * 0.1;
+        const total = subtotal - discount;
+        
+        subtotalEl.textContent = formatCurrency(subtotal);
+        discountEl.textContent = '-' + formatCurrency(discount);
+        totalEl.textContent = formatCurrency(total);
+        previousTotal = totalQuantity;
+    }
+
+    quantityInputs.forEach(input => {
+        input.addEventListener('change', updateTotals);
+        input.addEventListener('input', updateTotals);
+    });
+});
+
+ function toggleDica(questionElement) {
+            const answer = questionElement.nextElementSibling;
+            const icon = questionElement.querySelector('.dica-icon');
+            
+            answer.classList.toggle('open');
+            icon.classList.toggle('open');
+        }
+
+	</script>    
 </body>
 </html>
