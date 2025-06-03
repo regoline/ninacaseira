@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nina Caseira - Feito à mão, pensado com o coração</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <style>
+        .bg-primary {
+            background-color: #f0eae1;
+        }
+        .text-primary {
+            color: #787c48;
+        }
+        .bg-secondary {
+            background-color: #b56b4c;
+        }
+        .text-secondary {
+            color: #b56b4c;
+        }
+        .handwriting {
+            font-family: 'Pacifico', cursive;
+            font-weight: 700;
+        }
+        .handwriting2 {
+            font-family: 'Montserrat', cursive;
+            font-weight: 700;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .section {
+            min-height: 100vh;
+            padding: 80px 20px;
+        }
+        .menu-item {
+            transition: transform 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        .logo-container {
+            background-color: #f0eae1;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        .logo {
+            height: 50px;
+        }
+        @media (min-width: 768px) {
+            .logo {
+                height: 70px;
+            }
+        }
+        .hero-logo {
+            height: 120px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-primary">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="logo-container mr-2">
+                        <img src="logo.png" alt="Nina Caseira Logo" class="logo">
+                    </div>
+                    <span class="text-xl md:text-2xl font-bold">
+                        <span class="text-secondary handwriting">Nina</span>
+                        <span class="text-primary handwriting2"> Caseira</span>
+                    </span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-primary hover:text-secondary font-medium">Sobre</a>
+                    <a href="#menu" class="text-primary hover:text-secondary font-medium">Cardápio</a>
+                    <a href="#contact" class="text-primary hover:text-secondary font-medium">Contato</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-primary focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
+            <a href="#about" class="block px-4 py-2 text-primary hover:bg-gray-100">Sobre</a>
+            <a href="#menu" class="block px-4 py-2 text-primary hover:bg-gray-100">Cardápio</a>
+            <a href="#contact" class="block px-4 py-2 text-primary hover:bg-gray-100">Contato</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-16 md:pt-32 md:pb-24 bg-primary">
+        <div class="container mx-auto px-4 text-center">
+            
+            <h1 class="text-3xl md:text-5xl font-bold">
+				<span class="text-secondary handwriting">Nina</span>
+                <span class="text-primary handwriting2"> Caseira</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-700 mb-8">Feito à mão, pensado com o coração</p>
+            <a href="#menu" class="bg-secondary text-white px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition duration-300">Ver Cardápio</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Sobre nossas delícias</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="logo.png" alt="Homemade cookies"  class="rounded-lg shadow-xl w-full h-auto object-cover" style="max-height: 550px;">
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Na 
+                        <span class="text-secondary handwriting">Nina</span>
+						<span class="text-primary handwriting2"> Caseira</span>,
+						nós acreditamos na mágica da cozinha artesanal. Nossas delícias são feitas com os melhores ingredientes, receitas tradicionais e muito amor.
+                    </p>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Especializadas em receitinhas artesanais, cada um de nossos produtos é criado com muito cuidado para levar o sabor autêntico de uma receita caseira.
+                    </p>
+                    <p class="text-gray-700 text-lg">
+                        Esteja você procurando por um docinho para seu próprio consumo, ou um presente para alguém especial, nós conseguimos lhe atender com a nossa deliciosa seleção de produtos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section bg-primary">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Nossas Delícias</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bolinho de Chocolate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Cookies de Chocolate</h3>
+                        <p class="text-gray-600 mb-4">Cookies clássicos com muitas gotas de chocolate</p>
+                        <ul class="text-gray-700 mb-4">
+                            <li>• Farinha</li>
+                            <li>• Manteiga</li>
+                            <li>• Açucar mascavo</li>
+                            <li>• Gotas de Chocolate</li>
+                            <li>• Extrato de Baunilha</li>
+                        </ul>
+                        <p class="text-secondary font-bold text-xl">R$5,90/unidade</p>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bolinho de Chocolate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Chocolate</h3>
+                        <p class="text-gray-600 mb-4">Companhia perfeita para o lanchinho da tarde</p>
+                        <ul class="text-gray-700 mb-4">
+                            <li>• Farinha</li>
+                            <li>• Cacau em pó</li>
+                            <li>• Ovos</li>
+                            <li>• Óleo de Coco</li>
+                            <li>• Iogurte Natural</li>
+                        </ul>
+                        <p class="text-secondary font-bold text-xl">R$ 5,90/unidade</p>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1618923850107-d1a234d7a73a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bolinho de Chocolate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Coco</h3>
+                        <p class="text-gray-600 mb-4">Companhia perfeita para o lanchinho da tarde</p>
+                        <ul class="text-gray-700 mb-4">
+                            <li>• Farinha</li>
+                            <li>• Cacau em pó</li>
+                            <li>• Ovos</li>
+                            <li>• Óleo de Coco</li>
+                            <li>• Iogurte Natural</li>
+                        </ul>
+                        <p class="text-secondary font-bold text-xl">R$ 5,90/unidade</p>
+                    </div>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bolinho de Chocolate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Cenoura</h3>
+                        <p class="text-gray-600 mb-4">Companhia perfeita para o lanchinho da tarde</p>
+                        <ul class="text-gray-700 mb-4">
+                            <li>• Farinha</li>
+                            <li>• Cacau em pó</li>
+                            <li>• Ovos</li>
+                            <li>• Óleo de Coco</li>
+                            <li>• Iogurte Natural</li>
+                        </ul>
+                        <p class="text-secondary font-bold text-xl">R$ 5,90/unidade</p>
+                    </div>
+                </div>
+                
+                <!-- Item 5 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="logo.png" alt="Bolinho de Chocolate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Amêndoas</h3>
+                        <p class="text-gray-600 mb-4">Companhia perfeita para o lanchinho da tarde</p>
+                        <ul class="text-gray-700 mb-4">
+                            <li>• Farinha</li>
+                            <li>• Cacau em pó</li>
+                            <li>• Ovos</li>
+                            <li>• Óleo de Coco</li>
+                            <li>• Iogurte Natural</li>
+                        </ul>
+                        <p class="text-secondary font-bold text-xl">R$ 5,90/unidade</p>
+                    </div>
+                </div>
+                
+                <!-- Item 6 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Lemon Pound Cake" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho Red Velvet</h3>
+                        <p class="text-gray-600 mb-4">As crianças adoram!</p>
+                        <ul class="text-gray-700 mb-4">
+                            <li>• Farinha</li>
+                            <li>• Cacau em pó</li>
+                            <li>• Ovos</li>
+                            <li>• Óleo de Coco</li>
+                            <li>• Iogurte Natural</li>
+                        </ul>
+                        <p class="text-secondary font-bold text-xl">R$ 5,90/unidade</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Faça seu pedido</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-primary rounded-lg p-8 shadow-md">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Informações de contato</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-full p-3 mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Telefone</h4>
+                                <p class="text-gray-700">(19) 9 8811 1188</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-full p-3 mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Email</h4>
+                                <p class="text-gray-700">contato@ninacaseira.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-full p-3 mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Atendemos</h4>
+                                <p class="text-gray-700">Região de Campinas e Paulínia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-full p-3 mr-4">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Horários</h4>
+                                <p class="text-gray-700">Seg-Sex: 8:30 as 16:30</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="text-gray-700 mb-6">Para mais agilidade, você pode nos mandar uma mensagem no WhatsApp!</p>
+                        <a href="https://wa.me/1988111188" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-medium inline-flex items-center transition duration-300">
+                            <i class="fab fa-whatsapp mr-2 text-xl"></i> Converse via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="logo-container mr-4">
+                            <img src="logo.png" alt="Nina Caseira Logo" class="h-12">
+                        </div>
+                        <h3 class="text-2xl font-bold">
+                            <span class="text-white handwriting">Nina</span>
+                            <span class="text-gray-200 handwriting2"> Caseira</span>
+                        </h3>
+                        </h3>
+                    </div>
+                    <p class="mt-2">Feito à mão, pensando com o coração</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-gray-300 transition duration-300">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-300 transition duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-300 transition duration-300">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-white border-opacity-20 mt-6 pt-6 text-center">
+                <p>&copy; 2025 Nina Caseira.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/1188111188" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                mobileMenu.classList.add('hidden');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
