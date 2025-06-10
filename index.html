@@ -1,1 +1,669 @@
-Em breve
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nina Caseira - Paulínia | Bolinhos Artesanais</title>
+    <meta name="description" content="Bolinhos caseiros sem glúten e lactose em Paulínia. Feitos com ingredientes naturais.">
+    <meta name="keywords" content="bolinhos, Paulínia, sem glúten, sem lactose, doces saudáveis">
+    <!-- Favicon -->
+    
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<meta name="apple-mobile-web-app-title" content="Nina Caseira" />
+	<link rel="manifest" href="/site.webmanifest" />
+    
+    <meta property="og:title" content="Nina Caseira - Bolinhos Artesanais em Paulínia">
+    <meta property="og:description" content="Bolinhos caseiros sem glúten e lactose. Entregamos em Paulínia..">
+    <meta property="og:image" content="https://www.ninacaseira.com/logo.png">
+    <meta property="og:url" content="https://www.ninacaseira.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://www.ninacaseira.com/">
+	<meta property="twitter:title" content="Nina Caseira - Bolinhos Artesanais em Paulínia">
+	<meta property="twitter:description" content="Bolinhos caseiros sem glúten e sem lactose em Paulínia. Feitos com ingredientes naturais, entregamos em Paulínia.">
+	<meta property="twitter:image" content="https://www.ninacaseira.com/logo.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "Bakery",
+	  "name": "Nina Caseira",
+	  "image": "https://www.ninacaseira.com/logo.png",
+	  "@id": "https://www.ninacaseira.com",
+	  "url": "https://www.ninacaseira.com",
+	  "telephone": "+5519988110380",
+	  "priceRange": "$",
+	  "address": {
+		"@type": "PostalAddress",
+		"addressLocality": "Paulínia",
+		"addressRegion": "SP",
+		"postalCode": "13140-000",
+		"addressCountry": "BR"
+	  },
+	  "geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "-22.7611",
+		"longitude": "-47.1542"
+	  },
+	  "openingHoursSpecification": {
+		"@type": "OpeningHoursSpecification",
+		"dayOfWeek": [
+		  "Monday",
+		  "Tuesday",
+		  "Wednesday",
+		  "Thursday",
+		  "Friday"
+		],
+		"opens": "08:30",
+		"closes": "16:30"
+	  },
+	  "sameAs": [
+		"https://www.instagram.com/ninacaseira/"
+	  ]
+	}
+	</script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <style>
+        .bg-primary {
+            background-color: #f0eae1;
+        }
+        .text-primary {
+            color: #787c48;
+        }
+        .bg-secondary {
+            background-color: #b56b4c;
+        }
+        .text-secondary {
+            color: #b56b4c;
+        }
+        .handwriting {
+            font-family: 'Pacifico', cursive;
+            font-weight: 700;
+        }
+        .handwriting2 {
+            font-family: 'Montserrat', cursive;
+            font-weight: 700;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .section {
+			padding: 4rem 1.25rem; /* 64px 20px on mobile */
+		}
+
+		@media (min-width: 768px) {
+			.section {
+				padding: 5rem 1.5rem; /* 80px 24px on desktop */
+			}
+		}
+        .menu-item {
+            transition: transform 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        .logo-container {
+            background-color: #f0eae1;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        .logo {
+            height: 50px;
+        }
+        @media (min-width: 768px) {
+            .logo {
+                height: 70px;
+            }
+        }
+        .hero-logo {
+            height: 120px;
+            margin-bottom: 20px;
+        }
+        .cupcake-qty:disabled {
+        background-color: #f3f4f6;
+        cursor: not-allowed;
+        opacity: 0.7;
+		}
+		#quantity-error {
+			transition: opacity 0.3s ease;
+		}
+        .dica-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .dica-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #787c48;
+        }
+        .dica-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #555;
+        }
+        .dica-answer.open {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+        .dica-icon {
+            transition: transform 0.3s ease;
+        }
+        .dica-icon.open {
+            transform: rotate(180deg);
+        }
+        #contact {
+			padding-bottom: 120px; /* Extra space before footer */
+		}
+    </style>
+</head>
+<body class="font-sans bg-primary">
+    <!-- Navegação -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="logo-container mr-2">
+                        <img src="logo.png" alt="Nina Caseira Logo" class="logo">
+                    </div>
+                    <span class="text-xl md:text-2xl font-bold">
+                        <span class="text-secondary handwriting">Nina</span>
+                        <span class="text-primary handwriting2"> Caseira</span>
+                    </span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-primary hover:text-secondary font-medium">Sobre</a>
+                    <a href="#menu" class="text-primary hover:text-secondary font-medium">Cardápio</a>
+                    <a href="#dicas" class="text-primary hover:text-secondary font-medium">Dicas</a>
+                    <a href="#contact" class="text-primary hover:text-secondary font-medium">Contato</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-primary focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
+            <a href="#about" class="block px-4 py-2 text-primary hover:bg-gray-100">Sobre</a>
+            <a href="#menu" class="block px-4 py-2 text-primary hover:bg-gray-100">Cardápio</a>
+            <a href="#dicas" class="block px-4 py-2 text-primary hover:bg-gray-100">Dicas</a>
+            <a href="#contact" class="block px-4 py-2 text-primary hover:bg-gray-100">Contato</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="pt-24 pb-16 md:pt-32 md:pb-24 bg-primary">
+        <div class="container mx-auto px-4 text-center">
+            
+            <h1 class="text-3xl md:text-5xl font-bold">
+				<span class="text-secondary handwriting">Nina</span>
+                <span class="text-primary handwriting2"> Caseira</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-700 mb-8">Feito à mão, pensado com o coração</p>
+            <a href="#menu" class="bg-secondary text-white px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition duration-300">Ver Cardápio</a>
+        </div>
+    </header>
+
+    <!-- Sobre -->
+    <section id="about" class="section bg-white">
+        <div class="container mx-auto px-4">
+            <!-- <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Sobre nossas delícias</h2> -->
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="logo.png" alt="Homemade cookies"  class="rounded-lg shadow-xl w-full h-auto object-cover" style="max-height: 550px;">
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Na 
+                        <span class="text-secondary handwriting">Nina</span>
+						<span class="text-primary handwriting2"> Caseira</span>,
+						nós acreditamos na mágica da cozinha artesanal. Nossas delícias são feitas com os melhores ingredientes, receitas tradicionais e muito amor.
+                    </p>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Especializadas em receitinhas artesanais, cada um de nossos produtos é criado com muito cuidado para levar o sabor autêntico de uma receita feita em casa.
+                    </p>
+                    <p class="text-gray-700 text-lg">
+                        Esteja você procurando por um docinho para seu próprio consumo, ou um presente para alguém especial, nós conseguimos lhe atender com a nossa deliciosa seleção de produtos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" class="section bg-primary">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Nossas Delícias</h2> 
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="fotos/bolo_chocolate.jpeg" alt="Bolinho de Chocolate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Chocolate</h3>
+                        <p class="text-gray-600 mb-4">É bom comer quentinho! <i class="fa-solid fa-fire"></i></p>
+                        <ul class="text-gray-700 mb-4">
+                            <li>• Ovos</li>
+                            <li>• Óleo de Coco</li>
+                            <li>• Iogurte Natural</li>
+                            <li>• Mel</li>
+                            <li>• Farinha sem Glúten</li>
+							<li>• Gotas de Chocolate</li>
+                        </ul>
+                        <p class="text-secondary font-bold text-xl">R$ 6,70/unidade</p>
+                        <p class="text-secondary font-bold text-lg">Kit com 6: R$ 36,00</p>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="fotos/bolo_banana_chocolate.jpeg" alt="Bolinho de Banana com Chocolate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Banana com Gotas de Chocolate</h3>
+                        <p class="text-gray-600 mb-4">Ótima opção para acompanhar o cafezinho! <i class="fa-solid fa-mug-saucer"></i></p>
+                        <ul class="text-gray-700 mb-4">
+                            <li>• Ovos</li>
+                            <li>• Óleo de Coco</li>
+                            <li>• Iogurte Natural</li>
+                            <li>• Banana</li>
+                            <li>• Aveia em Flocos</li>
+							<li>• Mel</li>
+							<li>• Gotas de Chocolate</li>
+                        </ul>
+                        <p class="text-secondary font-bold text-xl">R$ 6,30/unidade</p>
+                        <p class="text-secondary font-bold text-lg">Kit com 6: R$ 34,00</p>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="fotos/bolococo7.jpeg" alt="Bolinho de Coco" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Coco</h3>
+                        <p class="text-gray-600 mb-4">Perfeito para o chá da tarde. <i class="fa-solid fa-mug-hot"></i></p>
+                        <ul class="text-gray-700 mb-4">
+                            <li>• Ovos</li>
+                            <li>• Óleo de Coco</li>
+                            <li>• Iogurte Natural</li>
+                            <li>• Açúcar de Coco</li>
+                            <li>• Farinha sem Glúten</li>
+			    <li>• Leite de Coco</li>
+		            <li>• Coco Chips</li>
+                        </ul>
+                        <p class="text-secondary font-bold text-xl">R$ 4,90/unidade</p>
+                        <p class="text-secondary font-bold text-lg">Kit com 6: R$ 26,50</p>
+                    </div>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="fotos/bolo_banana.jpeg" alt="Bolinho de Banana" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Banana</h3>
+                        <p class="text-gray-600 mb-4">Excelente e pŕatico para o lanche para as crianças! <i class="fa-solid fa-child-reaching"></i></p>
+                        <ul class="text-gray-700 mb-4">
+                            <li>• Ovos</li>
+                            <li>• Óleo de Coco</li>
+                            <li>• Iogurte Natural</li>
+                            <li>• Banana</li>
+                            <li>• Aveia em Flocos</li>
+			    <li>• Mel</li>
+                        </ul>
+                        <p class="text-secondary font-bold text-xl">R$ 4,50/unidade</p>
+                        <p class="text-secondary font-bold text-lg">Kit com 6: R$ 24,50</p>
+                    </div>
+                </div>
+               
+                <!-- Item 5 -->
+	
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="logo.png" alt="Bolinho de Mirtilo" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Banana com Mirtilo</h3>
+                        <p class="text-gray-600 mb-4">Companhia perfeita para o lanchinho da tarde</p>
+                        <ul class="text-gray-700 mb-4">
+                            <li>• Ovos</li>
+                            <li>• Óleo de Coco</li>
+                            <li>• Iogurte Natural</li>
+                            <li>• Banana</li>
+                            <li>• Aveia em Flocos</li>
+							<li>• Mel</li>
+							<li>• Mirtilo</li>
+                        </ul>
+                        <p class="text-secondary font-bold text-xl">Em Breve!</p>
+                    </div>
+                </div>
+         
+                <!-- Item 6 -->
+		<div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="logo.png" alt="Bolinho de Mirtilo" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">E mais..</h3>
+                        
+                        <p class="text-secondary font-bold text-xl">Em Breve!</p>
+                    </div>
+                </div>
+	 </div>
+    </section>
+
+<!-- Dicas -->
+    <section id="dicas" class="section bg-primary">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Dicas da Nina</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- Dica 1 -->
+                <div class="dica-item">
+                    <div class="dica-question" onclick="toggleDica(this)">
+                        <span>Como conservar meus bolinhos por mais tempo?</span>
+                        <svg class="dica-icon w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dica-answer">
+                        <p>Nossos bolinhos duram até 3 dias quando conservados em temperatura ambiente em um pote fechado ou geladeira. Para maior duração, recomendo congelar e esquentar a unidade no microondas por 1 minuto e comer quentinho :)</p>
+                    </div>
+                </div>
+                
+                <!-- Dica 2 -->
+                <div class="dica-item">
+                    <div class="dica-question" onclick="toggleDica(this)">
+                        <span>Como encomendar os bolinhos?</span>
+                        <svg class="dica-icon w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dica-answer">
+                        <p>Através do WhatsApp. Recomendamos fazer o pedido com pelo menos 3 dias de antecedência para garantir a disponibilidade. </p>
+                    </div>
+                </div>
+                
+                <!-- Dica 3 -->
+                <div class="dica-item">
+                    <div class="dica-question" onclick="toggleDica(this)">
+                        <span>Quais são as opções para intolerâncias alimentares?</span>
+                        <svg class="dica-icon w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dica-answer">
+                        <p>Todos nossos bolinhos são passiveis de serem feitos sem glúten (com exceção dos que utilizam aveia na receita) e sem lactose, mas é preciso informar no momento da encomenda pois implica alteração no valor final do mesmo.</p>
+						<p><b>Atenção alérgicos:</b> consultar os ingredientes listados em cada item.</p>
+                    </div>
+                </div>
+                
+                <!-- Dica 4 -->
+                <div class="dica-item">
+                    <div class="dica-question" onclick="toggleDica(this)">
+                        <span>Como faço para presentear alguém com seus bolinhos?</span>
+                        <svg class="dica-icon w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dica-answer">
+                        <p>Temos kits presente especiais com embalagem decorada. Você pode encomendar pelo WhatsApp informando o endereço de entrega. Fazemos entregas em Paulínia todas as sexta-feiras. Para Campinas atendemos apenas algumas regiões. Consulte valores e disponibilidade pelo nosso WhatsApp.</p>
+                    </div>
+                </div>
+                
+                <!-- Dica 5 -->
+                <div class="dica-item">
+                    <div class="dica-question" onclick="toggleDica(this)">
+                        <span>Qual a diferença entre seus bolinhos e os tradicionais?</span>
+                        <svg class="dica-icon w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="dica-answer">
+                        <p>Nossos bolinhos são feitos com ingredientes naturais e nutritivos - usamos óleo de coco no lugar de manteiga, iogurte natural para maciez, e mel ou açúcar de coco como adoçantes. São mais nutritivos, menos calóricos e com índice glicêmico mais baixo que bolinhos convencionais, sem abrir mão do sabor!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact" class="section bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Faça seu pedido</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-primary rounded-lg p-8 shadow-md">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Informações de contato</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-full p-3 mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Telefone</h4>
+                                <p class="text-gray-700">(19) 9 8811 0380</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-full p-3 mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Email</h4>
+                                <p class="text-gray-700">contato@ninacaseira.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-full p-3 mr-4">
+                                <i class="fab fa-instagram text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Instagram</h4>
+                                <p class="text-gray-700">/ninacaseira</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-full p-3 mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Atendemos</h4>
+                                <p class="text-gray-700">Paulínia - SP</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-full p-3 mr-4">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Horários</h4>
+                                <p class="text-gray-700">Seg-Sex: 8:30 as 16:30</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="text-gray-700 mb-6">Para mais agilidade, você pode nos mandar uma mensagem no WhatsApp!</p>
+                        <a href="https://wa.me/+5519988110380" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-medium inline-flex items-center transition duration-300">
+                            <i class="fab fa-whatsapp mr-2 text-xl"></i> Converse via WhatsApp
+                            
+                            
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-secondary text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="logo-container mr-4">
+                            <img src="logo.png" alt="Nina Caseira Logo" class="h-12">
+                        </div>
+                        <h3 class="text-2xl font-bold">
+                            <span class="text-white handwriting">Nina</span>
+                            <span class="text-gray-200 handwriting2"> Caseira</span>
+                            <span class="text-gray-200 handwriting2"> Paulínia</span>
+                        </h3>
+                    </div>
+                    <p class="mt-2">Feito à mão, pensado com o coração.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/ninacaseira/" class="hover:text-gray-300 transition duration-300" target="_blank">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/+5519988110380" class="hover:text-gray-300 transition duration-300" target="_blank">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-white border-opacity-20 mt-6 pt-6 text-center">
+                <p>&copy; 2025 Nina Caseira.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp  -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/+5519988110380" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Menu Mobile
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                mobileMenu.classList.add('hidden');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const quantityInputs = document.querySelectorAll('.cupcake-qty');
+    const subtotalEl = document.getElementById('subtotal');
+    const discountEl = document.getElementById('discount');
+    const totalEl = document.getElementById('total');
+    const errorEl = document.getElementById('quantity-error');
+    const MAX_CUPCAKES = 6;
+    let previousTotal = 0;
+
+    function formatCurrency(value) {
+        return 'R$ ' + value.toFixed(2).replace('.', ',');
+    }
+
+    function enforceMaxLimit(currentInput) {
+        let totalQuantity = 0;
+        quantityInputs.forEach(input => {
+            totalQuantity += parseInt(input.value) || 0;
+        });
+
+        if (totalQuantity > MAX_CUPCAKES) {
+            // Reverte
+            currentInput.value = parseInt(currentInput.value) - (totalQuantity - MAX_CUPCAKES);
+            errorEl.classList.remove('hidden');
+            setTimeout(() => errorEl.classList.add('hidden'), 2000);
+        } else {
+            errorEl.classList.add('hidden');
+        }
+        return Math.min(totalQuantity, MAX_CUPCAKES);
+    }
+
+    function updateTotals() {
+        let totalQuantity = 0;
+        let subtotal = 0;
+        
+        quantityInputs.forEach(input => {
+            const quantity = parseInt(input.value) || 0;
+            totalQuantity += quantity;
+            subtotal += quantity * parseFloat(input.dataset.price);
+        });
+
+        // Coloca limite
+        totalQuantity = enforceMaxLimit(this);
+
+        const discount = subtotal * 0.1;
+        const total = subtotal - discount;
+        
+        subtotalEl.textContent = formatCurrency(subtotal);
+        discountEl.textContent = '-' + formatCurrency(discount);
+        totalEl.textContent = formatCurrency(total);
+        previousTotal = totalQuantity;
+    }
+
+    quantityInputs.forEach(input => {
+        input.addEventListener('change', updateTotals);
+        input.addEventListener('input', updateTotals);
+    });
+});
+
+ function toggleDica(questionElement) {
+            const answer = questionElement.nextElementSibling;
+            const icon = questionElement.querySelector('.dica-icon');
+            
+            answer.classList.toggle('open');
+            icon.classList.toggle('open');
+        }
+
+	</script>    
+</body>
+</html>
