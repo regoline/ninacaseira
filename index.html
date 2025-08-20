@@ -194,9 +194,37 @@
         #contact {
 			padding-bottom: 120px; /* Extra space before footer */
 		}
+		
+		.card-flip {
+		  perspective: 1000px;
+		}
+		.card-inner {
+		  position: relative;
+		  width: 100%;
+		  height: 100%;
+		  transition: transform 0.6s;
+		  transform-style: preserve-3d;
+		}
+		.card-flipped .card-inner {
+		  transform: rotateY(180deg);
+		}
+		.card-front,
+		.card-back {
+		  position: absolute;
+		  width: 100%;
+		  height: 100%;
+		  backface-visibility: hidden;
+		  top: 0;
+		  left: 0;
+		}
+		.card-back {
+		  transform: rotateY(180deg);
+		}
+
+		
     </style>
 </head>
-<body class="font-sans bg-primary">
+<body class="bg-primary">
     <!-- Navegação -->
     <nav class="bg-white shadow-md fixed w-full z-10">
         <div class="container mx-auto px-4">
@@ -281,114 +309,280 @@
             <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Nossas Delícias</h2> 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Item 1 -->
-                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img src="fotos/bolo_chocolate.jpeg" alt="Bolinho de Chocolate" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Chocolate</h3>
-                        <p class="text-gray-600 mb-4">É bom comer quentinho! <i class="fa-solid fa-fire"></i></p>
-                        <ul class="text-gray-700 mb-4">
-                            <li>• Ovos</li>
-                            <li>• Óleo de Coco</li>
-                            <li>• Chocolate 50% (contém açúcar)</li>
-                            <li>• Iogurte Natural</li>
-                            <li>• Mel</li>
-                            <li>• Farinha sem Glúten</li>
-							<li>• Gotas de Chocolate</li>
-                        </ul>
-                        <p class="text-secondary font-bold text-xl flex items-center"><i class="fas fa-cookie mr-2"></i>R$ 6,70/unidade</p>
-                        <p class="text-secondary font-bold text-lg flex items-center"><i class="fas fa-box-open mr-2"></i>Kit com 6: R$ 36,00</p>
-                    </div>
-                </div>
+                
+                <div onclick="this.classList.toggle('card-flipped')" class="menu-item card-flip bg-white rounded-lg shadow-lg overflow-hidden relative h-[600px]">
+
+				  <div class="card-inner w-full h-full">
+
+					<!-- Frente -->
+					<div class="card-front bg-white rounded-lg p-6">
+					  <img src="fotos/bolo_chocolate.jpeg" alt="Bolinho de Chocolate" class="w-full h-48 object-cover rounded-lg mb-4">
+					  <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Chocolate</h3>
+					  <p class="text-gray-600 mb-4">É bom comer quentinho! <i class="fa-solid fa-fire"></i></p>
+					  <ul class="text-gray-700 mb-4 text-sm">
+						<li>• Ovos</li>
+                        <li>• Óleo de Coco</li>
+                        <li>• Chocolate 50% (contém açúcar)</li>
+                        <li>• Iogurte Natural</li>
+                        <li>• Mel</li>
+                        <li>• Farinha sem Glúten</li>
+						<li>• Gotas de Chocolate</li>
+					  </ul>
+					  <p class="text-secondary font-bold text-xl flex items-center"><i class="fas fa-cookie mr-2"></i>R$ 6,70/unidade</p>
+					  <p class="text-secondary font-bold text-lg flex items-center mb-4"><i class="fas fa-box-open mr-2"></i>Kit com 6: R$ 36,00</p>
+					  <button class="bg-secondary text-white px-4 py-2 rounded hover:bg-opacity-90">Informação Nutricional</button>
+					</div>
+
+					<!-- Verso -->
+					<div class="card-back bg-white rounded-lg p-6 flex flex-col justify-center items-start">
+					  <img src="fotos/bolo_chocolate.jpeg" alt="Bolinho de Chocolate" class="w-full h-48 object-cover rounded-lg mb-4">
+					  <h4 class="text-xl font-bold text-primary mb-2">Informação Nutricional</h4>
+					  <p class="text-sm text-gray-700 mb-2">Por unidade:</p>
+					  <ul class="text-sm text-gray-800">
+						<li>• Calorias: 112 kcal</li>
+						<li>• Carboidratos: 9,2 g</li>
+						<li>• Açúcares: 4,5 g</li>
+						<li>• Proteínas: 2,5 g</li>
+						<li>• Gorduras: 7,8 g</li>
+						<li>• Gorduras Saturadas: 5,9 g</li>
+						<li>• Fibras: 1,3 g</li>
+						<li>• Sódio: 61 mg</li>
+					  </ul>
+					  <button class="bg-secondary mt-4 text-white px-4 py-2 rounded hover:bg-opacity-90">Voltar</button>
+					</div>
+
+				  </div>
+				</div>
+                
+                
+                
                 
                 <!-- Item 2 -->
-                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img src="fotos/bolo_banana_chocolate.jpeg" alt="Bolinho de Banana com Chocolate" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Banana com Gotas de Chocolate</h3>
-                        <p class="text-gray-600 mb-4">Ótima opção para acompanhar o cafezinho! <i class="fa-solid fa-mug-saucer"></i></p>
-                        <ul class="text-gray-700 mb-4">
-                            <li>• Ovos</li>
-                            <li>• Óleo de Coco</li>
-                            <li>• Iogurte Natural</li>
-                            <li>• Banana</li>
-                            <li>• Aveia em Flocos</li>
-							<li>• Mel</li>
-							<li>• Gotas de Chocolate</li>
-                        </ul>
-                        <p class="text-secondary font-bold text-xl flex items-center"><i class="fas fa-cookie mr-2"></i>R$ 6,30/unidade</p>
-                        <p class="text-secondary font-bold text-lg flex items-center"><i class="fas fa-box-open mr-2"></i>Kit com 6: R$ 34,00</p>
-                    </div>
-                </div>
+                <div onclick="this.classList.toggle('card-flipped')" class="menu-item card-flip bg-white rounded-lg shadow-lg overflow-hidden relative h-[600px]">
+
+				  <div class="card-inner w-full h-full [transform-style:preserve-3d] transition-transform duration-700">
+
+					<!-- Frente -->
+					<div class="card-front absolute inset-0 backface-hidden p-6">
+					  <img src="fotos/bolo_banana_chocolate.jpeg" alt="Bolinho de Banana com Chocolate" class="w-full h-48 object-cover rounded-lg mb-4">
+					  <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Banana com Gotas de Chocolate</h3>
+					  <p class="text-gray-600 mb-4">Ótima opção para acompanhar o cafezinho! <i class="fa-solid fa-mug-saucer"></i></p>
+					  <ul class="text-gray-700 mb-4 text-sm">
+						<li>• Ovos</li>
+						<li>• Óleo de Coco</li>
+						<li>• Iogurte Natural</li>
+						<li>• Banana</li>
+						<li>• Aveia em Flocos</li>
+						<li>• Mel</li>
+						<li>• Gotas de Chocolate</li>
+					  </ul>
+					  <p class="text-secondary font-bold text-xl flex items-center"><i class="fas fa-cookie mr-2"></i>R$ 6,30/unidade</p>
+					  <p class="text-secondary font-bold text-lg flex items-center mb-4"><i class="fas fa-box-open mr-2"></i>Kit com 6: R$ 34,00</p>
+					  <button class="bg-secondary text-white px-4 py-2 rounded hover:bg-opacity-90">Informação Nutricional</button>
+					</div>
+
+					<!-- Verso -->
+					<div class="card-back bg-white rounded-lg p-6 flex flex-col justify-center items-start">
+					  <img src="fotos/bolo_banana_chocolate.jpeg" alt="Bolinho de Banana com Chocolate" class="w-full h-48 object-cover rounded-lg mb-4">
+					  <h4 class="text-xl font-bold text-primary mb-2">Informação Nutricional</h4>
+					  <p class="text-sm text-gray-700 mb-2">Por unidade:</p>
+					  <ul class="text-sm text-gray-800">
+						<li>• Calorias: 118 kcal</li>
+						<li>• Carboidratos: 16,1 g</li>
+						<li>• Açúcares: 7,2 g</li>
+						<li>• Proteínas: 3,0 g</li>
+						<li>• Gorduras: 4,6 g</li>
+						<li>• Gorduras Saturadas: 3,5 g</li>
+						<li>• Fibras: 2,0 g</li>
+						<li>• Sódio: 59 mg</li>
+					  </ul>
+					  <button class="bg-secondary mt-4 text-white px-4 py-2 rounded hover:bg-opacity-90">Voltar</button>
+					</div>
+
+				  </div>
+				</div>
                 
                 <!-- Item 3 -->
-                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img src="fotos/bolococo7.jpeg" alt="Bolinho de Coco" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Coco</h3>
-                        <p class="text-gray-600 mb-4">Perfeito para o chá da tarde. <i class="fa-solid fa-mug-hot"></i></p>
-                        <ul class="text-gray-700 mb-4">
-                            <li>• Ovos</li>
-                            <li>• Óleo de Coco</li>
-                            <li>• Iogurte Natural</li>
-                            <li>• Açúcar de Coco</li>
-                            <li>• Farinha sem Glúten</li>
-							<li>• Leite de Coco</li>
-							<li>• Coco Chips</li>
-                        </ul>
-                        <p class="text-secondary font-bold text-xl flex items-center"><i class="fas fa-cookie mr-2"></i>R$ 4,90/unidade</p>
-                        <p class="text-secondary font-bold text-lg flex items-center"><i class="fas fa-box-open mr-2"></i>Kit com 6: R$ 26,50</p>
-                    </div>
-                </div>
+                <div onclick="this.classList.toggle('card-flipped')" class="menu-item card-flip bg-white rounded-lg shadow-lg overflow-hidden relative h-[600px]">
+
+				  <div class="card-inner w-full h-full">
+
+					<!-- Frente -->
+					<div class="card-front bg-white rounded-lg p-6">
+					  <img src="fotos/bolococo7.jpeg" alt="Bolinho de Coco" class="w-full h-48 object-cover rounded-lg mb-4">
+					  <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Coco</h3>
+					  <p class="text-gray-600 mb-4">Perfeito para o chá da tarde. <i class="fa-solid fa-mug-hot"></i></p>
+					  <ul class="text-gray-700 mb-4 text-sm">
+						<li>• Ovos</li>
+						<li>• Óleo de Coco</li>
+						<li>• Iogurte Natural</li>
+						<li>• Açúcar de Coco</li>
+						<li>• Farinha sem Glúten</li>
+						<li>• Leite de Coco</li>
+						<li>• Coco Chips</li>
+					  </ul>
+					  <p class="text-secondary font-bold text-xl flex items-center"><i class="fas fa-cookie mr-2"></i>R$ 4,90/unidade</p>
+					  <p class="text-secondary font-bold text-lg flex items-center mb-4"><i class="fas fa-box-open mr-2"></i>Kit com 6: R$ 26,50</p>
+					  <button class="bg-secondary text-white px-4 py-2 rounded hover:bg-opacity-90">Informação Nutricional</button>
+					</div>
+
+					<!-- Verso -->
+					<div class="card-back bg-white rounded-lg p-6 flex flex-col justify-center items-start">
+					  <img src="fotos/bolococo7.jpeg" alt="Bolinho de Coco" class="w-full h-48 object-cover rounded-lg mb-4">
+					  <h4 class="text-xl font-bold text-primary mb-2">Informação Nutricional</h4>
+					  <p class="text-sm text-gray-700 mb-2">Por unidade:</p>
+					  <ul class="text-sm text-gray-800">
+						<li>• Calorias: 113 kcal</li>
+						<li>• Carboidratos: 9,6 g</li>
+						<li>• Açúcares: 4,7 g</li>
+						<li>• Proteínas: 2,2 g</li>
+						<li>• Gorduras: 7,9 g</li>
+						<li>• Gorduras Saturadas: 6,5 g</li>
+						<li>• Fibras: 1,5 g</li>
+						<li>• Sódio: 62 mg</li>
+					  </ul>
+					  <button class="bg-secondary mt-4 text-white px-4 py-2 rounded hover:bg-opacity-90">Voltar</button>
+					</div>
+
+				  </div>
+				</div>
+
                 
                 <!-- Item 4 -->
-                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img src="fotos/bolo_banana.jpeg" alt="Bolinho de Banana" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Banana</h3>
-                        <p class="text-gray-600 mb-4">Excelente e pŕatico para o lanche das crianças! <i class="fa-solid fa-child-reaching"></i></p>
-                        <ul class="text-gray-700 mb-4">
-                            <li>• Ovos</li>
-                            <li>• Óleo de Coco</li>
-                            <li>• Iogurte Natural</li>
-                            <li>• Banana</li>
-                            <li>• Aveia em Flocos</li>
-			    <li>• Mel</li>
-                        </ul>
-                        <p class="text-secondary font-bold text-xl flex items-center"><i class="fas fa-cookie mr-2"></i>R$ 4,50/unidade</p>
-                        <p class="text-secondary font-bold text-lg flex items-center"><i class="fas fa-box-open mr-2"></i>Kit com 6: R$ 24,50</p>
-                    </div>
-                </div>
+                <div onclick="this.classList.toggle('card-flipped')" class="menu-item card-flip bg-white rounded-lg shadow-lg overflow-hidden relative h-[600px]">
+				  <div class="card-inner w-full h-full">
+
+					<!-- Frente -->
+					<div class="card-front absolute inset-0 p-6">
+					  <img src="fotos/bolo_banana.jpeg" alt="Bolinho de Banana" class="w-full h-48 object-cover rounded-lg mb-4">
+					  <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Banana</h3>
+					  <p class="text-gray-600 mb-4">Excelente e prático para o lanche das crianças! <i class="fa-solid fa-child-reaching"></i></p>
+					  <ul class="text-gray-700 mb-4 text-sm">
+						<li>• Ovos</li>
+						<li>• Óleo de Coco</li>
+						<li>• Iogurte Natural</li>
+						<li>• Banana</li>
+						<li>• Aveia em Flocos</li>
+						<li>• Mel</li>
+					  </ul>
+					  <p class="text-secondary font-bold text-xl flex items-center"><i class="fas fa-cookie mr-2"></i>R$ 4,50/unidade</p>
+					  <p class="text-secondary font-bold text-lg flex items-center mb-4"><i class="fas fa-box-open mr-2"></i>Kit com 6: R$ 24,50</p>
+					  <button class="bg-secondary text-white px-4 py-2 rounded hover:bg-opacity-90">Informação Nutricional</button>
+					</div>
+
+					<!-- Verso -->
+					<div class="card-back bg-white rounded-lg p-6 flex flex-col justify-center items-start">
+					  <img src="fotos/bolo_banana.jpeg" alt="Bolinho de Banana" class="w-full h-48 object-cover rounded-lg mb-4">
+					  <h4 class="text-xl font-bold text-primary mb-2">Informação Nutricional</h4>
+					  <p class="text-sm text-gray-700 mb-2">Por unidade:</p>
+					  <ul class="text-sm text-gray-800">
+						<li>• Calorias: 112 kcal</li>
+						<li>• Carboidratos: 15,6 g</li>
+						<li>• Açúcares: 6,9 g</li>
+						<li>• Proteínas: 2,9 g</li>
+						<li>• Gorduras: 4,2 g</li>
+						<li>• Gorduras Saturadas: 3,2 g</li>
+						<li>• Fibras: 1,9 g</li>
+						<li>• Sódio: 57 mg</li>
+					  </ul>
+					  <button class="bg-secondary mt-4 text-white px-4 py-2 rounded hover:bg-opacity-90">Voltar</button>
+					</div>
+
+				  </div>
+				</div>
+
+
                
                 <!-- Item 5 -->
 	
-                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img src="fotos/bolo_banana_mirtilo3.jpeg" alt="Bolinho de Mirtilo" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Banana com Mirtilo</h3>
-                        <p class="text-gray-600 mb-4">Companhia perfeita para o lanchinho da tarde <i class="fa-solid fa-cookie-bite"></i></p>
-                        <ul class="text-gray-700 mb-4">
-                            <li>• Ovos</li>
-                            <li>• Óleo de Coco</li>
-                            <li>• Iogurte Natural</li>
-                            <li>• Banana</li>
-                            <li>• Aveia em Flocos</li>
-							<li>• Mel</li>
-							<li>• Mirtilo</li>
-                        </ul>
-                        <p class="text-secondary font-bold text-xl flex items-center"><i class="fas fa-cookie mr-2"></i>R$ 6,10/unidade</p>
-                        <p class="text-secondary font-bold text-lg flex items-center"><i class="fas fa-box-open mr-2"></i>Kit com 6: R$ 33,00</p>
-                    </div>
-                </div>
+                <div onclick="this.classList.toggle('card-flipped')" class="menu-item card-flip bg-white rounded-lg shadow-lg overflow-hidden relative h-[600px]">
+
+				  <div class="card-inner w-full h-full [transform-style:preserve-3d] transition-transform duration-700">
+
+					<!-- Frente -->
+					<div class="card-front absolute inset-0 backface-hidden p-6">
+					  <img src="fotos/bolo_banana_mirtilo3.jpeg" alt="Bolinho de Banana com Mirtilo" class="w-full h-48 object-cover rounded-lg mb-4">
+					  <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Banana com Mirtilo</h3>
+					  <p class="text-gray-600 mb-4">Combinação perfeita de leveza e sabor! <i class="fa-solid fa-lemon"></i></p>
+					  <ul class="text-gray-700 mb-4 text-sm">
+						<li>• Ovos</li>
+						<li>• Óleo de Coco</li>
+						<li>• Iogurte Natural</li>
+						<li>• Banana</li>
+						<li>• Aveia em Flocos</li>
+						<li>• Mel</li>
+						<li>• Mirtilo</li>
+					  </ul>
+					  <p class="text-secondary font-bold text-xl flex items-center"><i class="fas fa-cookie mr-2"></i>R$ 6,10/unidade</p>
+					  <p class="text-secondary font-bold text-lg flex items-center mb-4"><i class="fas fa-box-open mr-2"></i>Kit com 6: R$ 33,00</p>
+					  <button class="bg-secondary text-white px-4 py-2 rounded hover:bg-opacity-90">Informação Nutricional</button>
+					</div>
+
+					<!-- Verso -->
+					<div class="card-back bg-white rounded-lg p-6 flex flex-col justify-center items-start">
+					  <img src="fotos/bolo_banana_mirtilo3.jpeg" alt="Bolinho de Banana com Mirtilo" class="w-full h-48 object-cover rounded-lg mb-4">
+					  <h4 class="text-xl font-bold text-primary mb-2">Informação Nutricional</h4>
+					  <p class="text-sm text-gray-700 mb-2">Por unidade:</p>
+					  <ul class="text-sm text-gray-800">
+						<li>• Calorias: 114 kcal</li>
+						<li>• Carboidratos: 15,4 g</li>
+						<li>• Açúcares: 6,7 g</li>
+						<li>• Proteínas: 2,8 g</li>
+						<li>• Gorduras: 4,1 g</li>
+						<li>• Gorduras Saturadas: 3,1 g</li>
+						<li>• Fibras: 1,8 g</li>
+						<li>• Sódio: 56 mg</li>
+					  </ul>
+					  <button class="bg-secondary mt-4 text-white px-4 py-2 rounded hover:bg-opacity-90">Voltar</button>
+					</div>
+
+				  </div>
+				</div>
          
                 <!-- Item 6 -->
-		<div class="menu-item bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img src="logo.png" alt="Bolinho de Mirtilo" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-2">E mais..</h3>
-                        
-                        <p class="text-secondary font-bold text-xl">Em Breve!</p>
-                    </div>
-                </div>
+		<div onclick="this.classList.toggle('card-flipped')" class="menu-item card-flip bg-white rounded-lg shadow-lg overflow-hidden relative h-[600px]">
+
+				  <div class="card-inner w-full h-full [transform-style:preserve-3d] transition-transform duration-700">
+
+					<!-- Frente -->
+					<div class="card-front absolute inset-0 backface-hidden p-6">
+					  <img src="fotos/bolinho_espinafre2.jpeg" alt="Bolinho de Espinafre com Queijo" class="w-full h-48 object-cover rounded-lg mb-4">
+					  <h3 class="text-xl font-bold text-primary mb-2">Bolinho de Espinafre com Queijo</h3>
+					  <p class="text-gray-600 mb-4">Verde, leve e irresistível! <i class="fa-solid fa-leaf"></i></p>
+					  <ul class="text-gray-700 mb-4 text-sm">
+						<li>• Ovos</li>
+						<li>• Espinafre</li>
+						<li>• Iogurte Natural</li>
+						<li>• Muçarela</li>
+						<li>• Alho Poró</li>
+						<li>• Azeite, Cheiro Verde, Sal, Orégano, Páprica</li>
+						<li>• Parmesão</li>
+					  </ul>
+					  <p class="text-secondary font-bold text-xl flex items-center"><i class="fas fa-cookie mr-2"></i>R$ 7,00/unidade</p>
+					  <p class="text-secondary font-bold text-lg flex items-center mb-4"><i class="fas fa-box-open mr-2"></i>Kit com 6: R$ 38,00</p>
+					  <button class="bg-secondary text-white px-4 py-2 rounded hover:bg-opacity-90">Informação Nutricional</button>
+					</div>
+
+					<!-- Verso -->
+					<div class="card-back bg-white rounded-lg p-6 flex flex-col justify-center items-start">
+					  <img src="fotos/bolinho_espinafre2.jpeg" alt="Bolinho de Banana com Mirtilo" class="w-full h-48 object-cover rounded-lg mb-4">
+					  <h4 class="text-xl font-bold text-primary mb-2">Informação Nutricional</h4>
+					  <p class="text-sm text-gray-700 mb-2">Por unidade:</p>
+					  <ul class="text-sm text-gray-800">
+						<li>• Calorias: 128 kcal</li>
+						<li>• Carboidratos: 8,1 g</li>
+						<li>• Açúcares: 1 g</li>
+						<li>• Proteínas: 5,1 g</li>
+						<li>• Gorduras: 8,4 g</li>
+						<li>• Gorduras Saturadas: 3,3 g</li>
+						<li>• Fibras: 0,3 g</li>
+						<li>• Sódio: 100 mg</li>
+					  </ul>
+					  <button class="bg-secondary mt-4 text-white px-4 py-2 rounded hover:bg-opacity-90">Voltar</button>
+					</div>
+
+				  </div>
+				</div>
 	 </div>
     </section>
 
